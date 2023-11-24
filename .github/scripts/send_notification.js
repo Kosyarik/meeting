@@ -1,4 +1,4 @@
-const axios = require('axios');
+import { post } from 'axios';
 
 const googleChatWebhookUrl = process.env.GOOGLE_CHAT_WEBHOOK_URL;
 const tag = process.argv[2];
@@ -17,7 +17,7 @@ const message = {
   text: `New tag created: ${tag}`
 };
 
-axios.post(googleChatWebhookUrl, message)
+post(googleChatWebhookUrl, message)
   .then(response => {
     console.log("Notification sent successfully.");
   })
