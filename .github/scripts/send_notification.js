@@ -1,7 +1,8 @@
 const axios = require('axios');
 
 const googleChatWebhookUrl = process.env.GOOGLE_CHAT_WEBHOOK_URL;
-const tag = process.argv[2].ref.match(/(\d+\.\d+\.\d+)/);
+const tagArg = process.argv[2]; 
+const tagMatch = tagArg.match(/(\d+\.\d+\.\d+)/);
 const author =  process.env.GITHUB_ACTOR;
 const repositoryName = process.env.GITHUB_REPOSITORY;
 
@@ -13,12 +14,12 @@ if (!googleChatWebhookUrl) {
 }
 
 if (!tag) {
-  console.error("Tag not provided as a command-line argument.");
+  console.error("Tag notprovided as a command-line argument.");
   process.exit(1);
 }
 
 const message = {
-    text: `New tag created: ${tag[0]}\nAuthor: ${author}\nRepo Name: ${repositoryName}`
+    text: `New tag created: ${tagMatch[0]}\nAuthor: ${author}\nRepo Name: ${repositoryName}`
 };
 
 console.log('process', process);
