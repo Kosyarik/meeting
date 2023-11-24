@@ -17,6 +17,8 @@ const message = {
   text: `New tag created: ${tag}`
 };
 
+console.log('process', process);
+
 axios.post(googleChatWebhookUrl, message)
   .then(response => {
     console.log("Notification sent  successfully.");
