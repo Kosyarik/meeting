@@ -1,7 +1,11 @@
 const axios = require('axios');
 
 const googleChatWebhookUrl = process.env.GOOGLE_CHAT_WEBHOOK_URL;
-const tag = process.argv[2];
+const tag = process.argv[2].ref.match(/(\d+\.\d+\.\d+)/);
+const author =  process.env.GITHUB_ACTOR;
+const repositoryName = process.env.GITHUB_REPOSITORY;
+
+
 
 if (!googleChatWebhookUrl) {
   console.error("GOOGLE_CHAT_WEBHOOK_URL is not set in the environment variables.");
@@ -14,7 +18,7 @@ if (!tag) {
 }
 
 const message = {
-  text: `New tag created: ${tag}`
+    text: `New tag created: ${tag[0]}\nAuthor: ${author}\nRepo Name: ${repositoryName}`
 };
 
 console.log('process', process);
