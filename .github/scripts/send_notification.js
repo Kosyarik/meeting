@@ -17,9 +17,9 @@ const message = {
   text: `New tag created: ${tag}`
 };
 
-post(googleChatWebhookUrl, message)
+axios.post(googleChatWebhookUrl, message)
   .then(response => {
-    console.log("Notification sent successfully.");
+    console.log("Notification sent  successfully.");
   })
   .catch(error => {
     console.error("Error sending notification:", error.message);
