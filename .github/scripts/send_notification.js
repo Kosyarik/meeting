@@ -1,4 +1,4 @@
-import { post } from 'axios';
+const axios = require('axios');
 
 const googleChatWebhookUrl = process.env.GOOGLE_CHAT_WEBHOOK_URL;
 const tag = process.argv[2];
