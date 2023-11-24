@@ -13,11 +13,6 @@ if (!googleChatWebhookUrl) {
   process.exit(1);
 }
 
-if (!tag) {
-  console.error("Tag notprovided as a command-line argument.");
-  process.exit(1);
-}
-
 const message = {
     text: `New tag created: ${tagMatch[0]}\nAuthor: ${author}\nRepo Name: ${repositoryName}`
 };
